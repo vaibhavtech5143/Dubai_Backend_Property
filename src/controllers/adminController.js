@@ -45,7 +45,8 @@ const loginAdmin = asyncHandler(async (req, res) => {
   const admin = await Admin.findOne({ email });
 
   if (admin && (await admin.matchPassword(password))) {
-    generateToken(res, admin._id);
+   let cookie =  generateToken(res, admin._id);
+   res.cookie('jwt', cookie);
     res.json({
       _id: admin._id,
       name: admin.name,
