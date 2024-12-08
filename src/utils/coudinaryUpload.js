@@ -6,7 +6,7 @@ const uploadToCloudinary = async (file) => {
 
   const result = await cloudinary.uploader.upload(dataURI, {
     folder: 'properties',
-    allowed_formats: ['jpg', 'png'],
+    allowed_formats: ['jpg', 'png','jpeg'],
   });
 
   if (!result || !result.secure_url) {
