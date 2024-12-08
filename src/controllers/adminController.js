@@ -23,13 +23,15 @@ const registerAdmin = asyncHandler(async (req, res) => {
   });
 
   if (admin) {
-    generateToken(res, admin._id);
+    let tokenGenerated = generateToken(res, admin._id);
+    res.body.token = tokenGenerated;
     res.status(201).json({
       _id: admin._id,
       name: admin.name,
       email: admin.email,
       username: admin.username,
     });
+
   } else {
     res.status(400);
     throw new Error('Invalid admin data');
