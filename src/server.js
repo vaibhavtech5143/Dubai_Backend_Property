@@ -23,6 +23,9 @@ app.use(cookieParser());
     
     // Routes
     app.use('/api/admin', adminRoutes);
+    app.get('/api/health', (req,res)=>{
+      res.send('Server is running');
+    });
     app.use('/api/properties', propertyRoutes);
 
     // Error handling middleware
