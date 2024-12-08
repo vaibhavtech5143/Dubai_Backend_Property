@@ -12,7 +12,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'https://dubai-estate-pi.vercel.app/', // Replace with the frontend origin
+  origin: 'https://dubai-estate-pi.vercel.app', // Replace with the frontend origin
   credentials: true,              // Allow credentials (cookies)
 }));
 app.use(express.json());
